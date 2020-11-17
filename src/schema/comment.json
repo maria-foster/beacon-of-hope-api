@@ -1,0 +1,13 @@
+{
+    "comment": [
+        {
+            "content": "",
+            "likes" : 0, 
+            "dislkies" : 0,
+            "user" : "",
+            "comments" : [],
+            "flagged" : false,
+            "category" : ""
+        }
+    ]
+}

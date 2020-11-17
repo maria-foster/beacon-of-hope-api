@@ -1,0 +1,14 @@
+{
+    "user": [
+        {
+            "firstName": "",
+            "lastName" : "",
+            "email" : "", 
+            "password" : "",
+            "phoneNumber" : "",
+            "age" : 0,
+            "zipCode" : 0,
+            "username" : ""
+        }
+    ]
+}
