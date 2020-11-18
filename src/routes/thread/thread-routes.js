@@ -12,10 +12,11 @@ var fs = require("fs");
 
 //New thread POST Routes
 router.post('/', function (req, res) {
-    var new_thread = new thread(req.body);
+    var new_thread = new ThreadModel(req.body);
     new_thread.save(function(err, new_thread){
         if(err)return console.error(err);
     });
+    res.send("Thread created successfully!")
 });
 
 
@@ -30,11 +31,25 @@ router.get('/', function (req, res) {
 
 router.get('/:id', function (req, res) {
     var id = req.params.id
-    var Thread;
-   ThreadModel.findById(id, function(err, newThread){
+    ThreadModel.findById(id, function(err, newThread){
         if(err)return console.error(err);
         res.send(newThread)
-        
+    })
+});
+
+router.get('/findByCategory/:category', function (req, res) {
+    var threadCategory = req.params.category
+    ThreadModel.find({category:threadCategory}, function(err, newThread){
+        if(err)return console.error(err);
+        res.send(newThread)
+    })
+});
+
+router.get('/findByUser/:user', function (req, res) {
+    var threadUser = req.params.user
+    ThreadModel.find({user:threadUser}, function(err, newThread){
+        if(err)return console.error(err);
+        res.send(newThread)
     })
 });
 
@@ -54,7 +69,18 @@ router.put('/:id', function (req, res) {
         .catch(err => {
             if (err) return res.status(500).send(err);
         })
+        res.send("Put successfully completed!")
 });
+
+//Delete route
+router.delete('/:id', function (req, res) {
+    var id = req.params.id
+    ThreadModel.findByIdAndDelete(id, function(err){
+        if(err)return console.error(err);
+        res.send("Thread deleted")
+    })
+});
+
 
 // Export API routes
 module.exports = router;
