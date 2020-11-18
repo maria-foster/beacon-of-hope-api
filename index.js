@@ -1,11 +1,3 @@
-const user = require('./src/models/user.model');
-const thread = require('./src/models/thread.model');
-const comment = require('./src/models/comment.model');
-
-var fs = require('fs');
-var https = require('https');
-var http = require('http');
-var path = require('path');
 
 // Import express
 let express = require('express')
@@ -30,7 +22,7 @@ app.get('/', (req, res) => res.send('Hello World with Express'));
 //Params for API
 port = 5500
 //ip = "localhost"
-ip = "52.167.218.141"
+ip = "0.0.0.0"
 
 app.listen(port, ip, function () {
      console.log("Running API on  " +  ip  + ":" + port);

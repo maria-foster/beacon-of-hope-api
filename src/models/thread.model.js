@@ -7,7 +7,7 @@ let threadSchema = new Schema({
     title: {type : String},
     likes: {type : Number},
     dislkies: {type : Number},
-    user: {type : mongoose.Schema.Types.Object},
+    user: {type : String},
     comments: {type : Array},
     flagged: {type : Boolean},
     category: {type : String},

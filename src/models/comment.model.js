@@ -6,8 +6,7 @@ let commentSchema = new Schema({
     content: {type : String},
     likes: {type : Number},
     dislkies: {type : Number},
-    user: {type : mongoose.Schema.Types.Object},
-    comments: {type : Array},
+    user: {type : String},
     flagged: {type : Boolean},
     category: {type : String},
 });
