@@ -13,4 +13,4 @@ let userSchema = new Schema({
     username: {type : String},
 });
 
-module.exports = mongoose.model("user", userSchema)
+module.exports = mongoose.model("user", userSchema, "user")

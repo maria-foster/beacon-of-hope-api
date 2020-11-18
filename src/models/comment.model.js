@@ -12,4 +12,4 @@ let commentSchema = new Schema({
     category: {type : String},
 });
 
-module.exports = mongoose.model("comment", commentSchema)
+module.exports = mongoose.model("comment", commentSchema, "comment")

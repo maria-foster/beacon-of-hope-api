@@ -72,13 +72,22 @@ retryWrites: false
 })
 .then(() => console.log('Connection to CosmosDB successful'))
 .catch((err) => console.error(err));
+var db = mongoose.connection;
 
-// mongoose.connect("mongodb://10.146.219.147:5500/hackathon", { useNewUrlParser: true});
-// var db = mongoose.connection;
+var myobj = { 
+    firstName: "Connor",
+    lastName : "Robbins",
+    email : "Connor@robbins.com", 
+    password : "password",
+    phoneNumber : "5555555555",
+    age : 22,
+    zipCode : 15232,
+    username : "crobbins"
+};
 
-// Added check for DB connection
-// if(!db)
-//     console.log("Error connecting db")
-// else
-//     console.log("Db connected successfully")
+// db.collection("user").insertOne(myobj, function(err, res) {
+//     if (err) throw err;
+//     console.log("1 document inserted");
+//     db.close();
+// });
 

@@ -13,4 +13,4 @@ let threadSchema = new Schema({
     category: {type : String},
 });
 
-module.exports = mongoose.model("thread", threadSchema)
+module.exports = mongoose.model("thread", threadSchema, "thread")
