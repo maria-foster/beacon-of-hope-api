@@ -29,8 +29,8 @@ app.get('/', (req, res) => res.send('Hello World with Express'));
 
 //Params for API
 port = 5500
-ip = "localhost"
-//ip = 
+//ip = "localhost"
+ip = "52.167.218.141"
 
 app.listen(port, ip, function () {
      console.log("Running API on  " +  ip  + ":" + port);
@@ -73,21 +73,4 @@ retryWrites: false
 .then(() => console.log('Connection to CosmosDB successful'))
 .catch((err) => console.error(err));
 var db = mongoose.connection;
-
-var myobj = { 
-    firstName: "Connor",
-    lastName : "Robbins",
-    email : "Connor@robbins.com", 
-    password : "password",
-    phoneNumber : "5555555555",
-    age : 22,
-    zipCode : 15232,
-    username : "crobbins"
-};
-
-// db.collection("user").insertOne(myobj, function(err, res) {
-//     if (err) throw err;
-//     console.log("1 document inserted");
-//     db.close();
-// });
 
