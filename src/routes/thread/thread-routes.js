@@ -1,4 +1,5 @@
 const ThreadModel = require('../../models/thread.model');
+const UserModel = require('../../models/user.model')
 
 // Initialize express router
 let router = require('express').Router();
@@ -50,6 +51,23 @@ router.get('/findByUser/:user', function (req, res) {
     ThreadModel.find({user:threadUser}, function(err, newThread){
         if(err)return console.error(err);
         res.send(newThread)
+    })
+});
+
+router.get('/filterByAge/:age', function (req, res) {
+    var userAge = req.params.age
+    UserModel.find({age:userAge}, function(err, users){
+        console.log(users)
+        if(err)return console.error(err);
+        var threads = []
+        for(var i = 0; i < users.length - 1; i++){
+            ThreadModel.find({user:users[i]._id}, function(err, newThread){
+                console.log(users[i]._id + " is at " + i)
+                if(err)return console.error(err);
+                threads.push(newThread)
+            })
+        }
+        res.send(threads)
     })
 });
 
