@@ -1,6 +1,6 @@
 class Thread{
 
-    constructor(content, title, likes, dislikes, user, comments, flagged, category){
+    constructor(content, title, likes, dislikes, user, comments, flagged, category, date){
 
         this.content = content;
         this.title = title;
@@ -10,6 +10,7 @@ class Thread{
         this.comments = comments;
         this.flagged = flagged;
         this.category = category;
+        this.date = date;
     
     }
 
@@ -43,6 +44,10 @@ class Thread{
 
     category(newCategory){
         this.category = newCategory;
+    }
+
+    date(newDate){
+        this.date = newDate;
     }
 
 }

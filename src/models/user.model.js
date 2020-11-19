@@ -9,6 +9,7 @@ let userSchema = new Schema({
     password: {type : String},
     phoneNumber: {type : String},
     age: {type : Number},
+    gender: {type : String},
     zipCode: {type : Number},
     username: {type : String},
 });

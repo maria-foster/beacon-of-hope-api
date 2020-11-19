@@ -1,6 +1,6 @@
 class User{
 
-    constructor(firstName, lastName, email, password, phoneNumber, age, zipCode, username){
+    constructor(firstName, lastName, email, password, phoneNumber, age, gender, zipCode, username){
 
         this.firstName = firstName;
         this.lastName = lastName;
@@ -8,6 +8,7 @@ class User{
         this.password = password;
         this.phoneNumber = phoneNumber;
         this.age = age;
+        this.gender = gender;
         this.zipCode = zipCode;
         this.username = username;
     
@@ -35,6 +36,10 @@ class User{
 
     age(newAge){
         this.age = newAge;
+    }
+
+    gender(newGender){
+        this.gender = newGender;
     }
 
     zipCode(newZipCode){

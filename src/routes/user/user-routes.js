@@ -47,6 +47,14 @@ router.get('/findByAge/:age', function (req, res) {
     })
 });
 
+router.get('/findByGender/:gender', function (req, res) {
+    var userGender = req.params.gender
+    UserModel.find({gender:userGender}, function(err, newUser){
+        if(err)return console.error(err);
+        res.send(newUser)
+    })
+});
+
 router.get('/findByZipCode/:zip', function (req, res) {
     var zip = req.params.zip
     UserModel.find({zipCode:zip}, function(err, newUser){
@@ -54,6 +62,9 @@ router.get('/findByZipCode/:zip', function (req, res) {
         res.send(newUser)
     })
 });
+
+//Double get calls TO DO
+
 
 
 
