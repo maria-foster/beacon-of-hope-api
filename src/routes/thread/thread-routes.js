@@ -56,18 +56,65 @@ router.get('/findByUser/:user', function (req, res) {
 
 router.get('/filterByAge/:age', function (req, res) {
     var userAge = req.params.age
+    var threads = []
     UserModel.find({age:userAge}, function(err, users){
-        console.log(users)
         if(err)return console.error(err);
-        var threads = []
         for(var i = 0; i < users.length - 1; i++){
             ThreadModel.find({user:users[i]._id}, function(err, newThread){
-                console.log(users[i]._id + " is at " + i)
                 if(err)return console.error(err);
-                threads.push(newThread)
+                for(var j = 0; j < newThread.length; j++){
+                    console.log("\nThis is one thread: ")
+                    console.log(newThread[j])
+                    threads.push(newThread[j])
+                }
+                if ((i = users.length - 1) && (j = newThread.length)){
+                    console.log(threads)
+                    res.send(threads)
+                }
             })
         }
-        res.send(threads)
+    })
+});
+
+router.get('/filterByZip/:zip', function (req, res) {
+    var userZip = req.params.zip
+    var threads = []
+    UserModel.find({zip:userZip}, function(err, users){
+        if(err)return console.error(err);
+        for(var i = 0; i < users.length - 1; i++){
+            ThreadModel.find({user:users[i]._id}, function(err, newThread){
+                if(err)return console.error(err);
+
+                for(var j = 0; j < newThread.length; j++)
+                    threads.push(newThread[j])
+                
+                if ((i = users.length - 1) && (j = newThread.length))
+                    res.send(threads)
+                
+            })
+        }
+    })
+});
+
+router.get('/filterByGender/:gender', function (req, res) {
+    var userGender = req.params.gender
+    var threads = []
+    UserModel.find({gender:userGender}, function(err, users){
+        if(err)return console.error(err);
+        for(var i = 0; i < users.length - 1; i++){
+            ThreadModel.find({user:users[i]._id}, function(err, newThread){
+                if(err)return console.error(err);
+                for(var j = 0; j < newThread.length; j++){
+                    console.log("\nThis is one thread: ")
+                    console.log(newThread[j])
+                    threads.push(newThread[j])
+                }
+                if ((i = users.length - 1) && (j = newThread.length)){
+                    console.log(threads)
+                    res.send(threads)
+                }
+            })
+        }
     })
 });
 
