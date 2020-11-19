@@ -16,7 +16,7 @@ router.post('/', function (req, res) {
     new_thread.save(function(err, new_thread){
         if(err)return console.error(err);
     });
-    res.send("Thread created successfully!")
+    res.send(new_thread)
 });
 
 
@@ -69,7 +69,6 @@ router.put('/:id', function (req, res) {
         .catch(err => {
             if (err) return res.status(500).send(err);
         })
-        res.send("Put successfully completed!")
 });
 
 //Delete route

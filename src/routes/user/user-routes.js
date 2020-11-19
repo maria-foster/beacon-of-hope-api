@@ -18,7 +18,7 @@ router.post('/', function (req, res) {
     new_user.save(function(err, new_user){
         if(err)return console.error(err);
     });
-    res.send("User created successfully!")
+    res.send(new_user)
 });
 
 
@@ -63,9 +63,14 @@ router.get('/findByZipCode/:zip', function (req, res) {
     })
 });
 
-//Double get calls TO DO
-
-
+router.get('/login/:username/:password', function (req, res) {
+    var userPassword = req.params.password
+    var userUserName = req.params.username
+    UserModel.find({password:userPassword, username:userUserName}, function(err, newUser){
+        if(err)return console.error(err);
+        res.send(newUser)
+    })
+});
 
 
 //User PUT Routes
@@ -82,7 +87,6 @@ router.put('/:id', function (req, res) {
         .catch(err => {
             if (err) return res.status(500).send(err);
         })
-        res.send("Put successfully completed!")
 });
 
 //Delete route
